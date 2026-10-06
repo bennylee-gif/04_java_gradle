@@ -20,14 +20,14 @@ public class JDBCTest {
 
         // 3-1. executeUpdate - Read를 제외한 모든 sql 명령어를 실행
         // Create
-        String sql2 = "INSERT INTO dept VALUES (99, 'OPERATION', 'SEOUL')";
+//        String sql2 = "INSERT INTO dept VALUES (199, 'OPERATION', 'SEOUL')";
 
         // Update
-        // String sql2 = "UPDATE dept SET dname='OPERATION2' WHERE deptno=99";
+        // String sql2 = "UPDATE dept SET dname='OPERATION2' WHERE deptno=199";
 
 
         // DELETE
-//            String sql2 = "DELETE FROM dept WHERE deptno=99";
+        String sql2 = "DELETE FROM dept WHERE deptno=199";
 
         // 그 결과로 실제 영향을 끼친 row의 수를 리턴
         int rs2 = stmt.executeUpdate(sql2);
@@ -48,11 +48,15 @@ public class JDBCTest {
         // executeQuery - Read를 실행
         // 그 결과로 SELECT된 전체 행을 가져 리턴
         ResultSet rs = stmt.executeQuery(sql); // Get
+        System.out.println("========== rs raw 값=============");
+        System.out.println(rs);
+
 
         // 4. DB에서 가져온 값으로 실제 동작을 수행
-        while (rs.next()) {
+        while (rs.next()) { // rs.next() 값이 있으면 true / 없으면 false 를 리턴
+            // System.out.println(rs.next());  // next() 를 두번 호출하므로 방번호를 2개씩 건너뛰고 있음
             System.out.println(rs.getInt(1)); // 컬럼 순번(SQL의 규칙대로 1부터 시작) 정수형으로 된 자료 컬럼을 출력
-            System.out.println(rs.getString("dname")); // 컬럼명으로 문자열로 된 자료 컬럼을 출력
+            System.out.println(rs.getString("loc")); // 컬럼명으로 문자열로 된 자료 컬럼을 출력
         }
 
 
