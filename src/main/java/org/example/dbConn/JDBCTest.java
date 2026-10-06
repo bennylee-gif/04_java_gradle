@@ -56,7 +56,7 @@ public class JDBCTest {
         while (rs.next()) { // rs.next() 값이 있으면 true / 없으면 false 를 리턴
             // System.out.println(rs.next());  // next() 를 두번 호출하므로 방번호를 2개씩 건너뛰고 있음
             System.out.println(rs.getInt(1)); // 컬럼 순번(SQL의 규칙대로 1부터 시작) 정수형으로 된 자료 컬럼을 출력
-            System.out.println(rs.getString("loc")); // 컬럼명으로 문자열로 된 자료 컬럼을 출력
+            System.out.println(rs.getString("dname")); // 컬럼명으로 문자열로 된 자료 컬럼을 출력
         }
 
 

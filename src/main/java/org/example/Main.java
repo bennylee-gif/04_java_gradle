@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.lombok.Dept;
 import org.example.lombok.HelloLombok;
 
 //TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
@@ -7,18 +8,23 @@ import org.example.lombok.HelloLombok;
 public class Main {
     public static void main(String[] args) {
 
-        HelloLombok hello1 = new HelloLombok();
+        HelloLombok hello1 = new HelloLombok("123-45");
         hello1.setName("kim");
         hello1.setAge(40);
-        hello1.setSsn("123-45");
+        // hello1.setSsn("123-45"); // final 키워드로 선언된 변수를 수정 불가
         System.out.println(hello1.getName());
         System.out.println(hello1.getSsn());
         System.out.println(hello1);  // 자료형@메모리주소 였던 toString() 을 실제 객체 안에 있는 값으로 변환
         System.out.println(hello1.toString());
         System.out.println(hello1.equals("새로운 값"));
 
-        HelloLombok hello2 = new HelloLombok("kim", 40, "12345");
+        HelloLombok hello2 = new HelloLombok("kim", 40, "123-45");
 
         System.out.println(hello1.equals(hello2));
+
+        Dept dept = new Dept();
+        dept.getDeptno();
+        dept.getDname();
+        dept.getLoc();
     }
 }
